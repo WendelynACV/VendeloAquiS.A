@@ -8,9 +8,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Vendelo Aqui S.A</title>
   </head>
   <body>
-  $END$
+  <img src="${pageContext.request.contextPath}/images/VAlogo.png">
+  <h1 align="center">Vendelo Aquí S.A</h1>
+
+  <div class="opcionARealizar" >
+    <h3>¿ERES PROVEEDOR O CLIENTE? (Da click a uno de los botones)</h3>
+    <form action="#">
+      <button onclick="proveedor()">Ingresar a proveedor</button>
+      <button onclick="cliente()">Ingresar a cliente</button>
+      <br><br>
+    </form>
+  </div>
+  <br><br>
+
+  <script>
+    function proveedor() {
+      document.location.href ="${pageContext.request.contextPath}/login.jsp";
+    }
+  </script>
+
+  <br><br>
+  <footer>
+    <p>Wendelyn Cordero</p>
+  </footer>
+
+
   </body>
 </html>
