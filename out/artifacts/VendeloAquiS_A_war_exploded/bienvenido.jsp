@@ -12,8 +12,10 @@
 </head>
 
 <body>
+
 <h1>Bienvenido</h1>
 <p>Dear: ${username}</p>
 <p>Su contraseña es: ${password}</p>
+
 </body>
 </html>

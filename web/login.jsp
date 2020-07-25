@@ -12,13 +12,19 @@
 </head>
 
 <body>
+    <img src="${pageContext.request.contextPath}/images/VAlogo.png">
+    <h1 align="center">Vendelo Aquí S.A</h1>
 
-    <h1>Bienvenido, por favor registrese</h1>
-
+    <br><br>
+    <h2>Bienvenido, por favor ingrese o registrese en el link</h2>
+    <br><br>
     <form action="/login.jsp" method="post">
-        login-nombre: <input type="text" name="" "loginname" width="30"/>
-        password: <input type="password" name="password" width="10"/>
-        <input type="submit" value="Login"/>
+        login-nombre: <input type="text" name="" "loginname" width="120"/>
+        password: <input minlength="8" align="center" type="password" name="password" width="10"/>
+        <input type="submit" value="Ingresar"/>
+        <br><br>
+        <a href="${pageContext.request.contextPath}/registrarProveedor.jsp">registrarProveedor</a>
+
     </form>
 
 </body>

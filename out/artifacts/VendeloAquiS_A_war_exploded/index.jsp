@@ -9,7 +9,11 @@
 <html>
   <head>
     <title>Vendelo Aqui S.A</title>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}images/VAicono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+
   </head>
+
   <body>
   <img src="${pageContext.request.contextPath}/images/VAlogo.png">
   <h1 align="center">Vendelo Aquí S.A</h1>
@@ -21,7 +25,6 @@
       <button onclick="cliente()">Ingresar a cliente</button>
       <br><br>
     </form>
-    <a href="${pageContext.request.contextPath}/login.jsp">link</a>
   </div>
   <br><br>
 
@@ -29,13 +32,16 @@
     function proveedor() {
       document.location.href ="${pageContext.request.contextPath}/login.jsp";
     }
+
+    function cliente() {
+      document.location.href ="${pageContext.request.contextPath}/webCliente.jsp";
+    }
   </script>
 
   <br><br>
   <footer>
     <p>Wendelyn Cordero</p>
   </footer>
-
 
   </body>
 </html>
