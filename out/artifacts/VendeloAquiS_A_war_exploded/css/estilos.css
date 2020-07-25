@@ -1,0 +1,10 @@
+head{
+    fill-opacity: 8%;
+    background:url(../images/ventaFondo.png);
+}
+body{
+
+    background: aquamarine;
+    width: 90%;
+    max-width: 1000px;
+}
