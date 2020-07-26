@@ -2,7 +2,7 @@ package appLayer;
 
 public class Producto {
 
-    private int id = 0;
+    private String id = "0";
     private String descripcionProducto= "";
     private String descripcionDeEngancheCliente ="";
     private boolean refrigeracion;
@@ -11,22 +11,22 @@ public class Producto {
     private int cantidadEnStock = 0;
     private String imagen = "";
 
-    public Producto(){
-        this.id = id;
-    }
-
-    public Producto(String descripcionProducto, int costo, int cantidadEnStock, String imagen){
+    public Producto(String descripcionProducto, String descripcionDeEnganche, boolean refrigeracion,  int costo,
+                    int porcentajeDeGanancia, int cantidadEnStock, String imagen){
         this.descripcionProducto = descripcionProducto;
+        this.descripcionDeEngancheCliente = descripcionDeEnganche;
+        this.refrigeracion = refrigeracion;
         this.costo = costo;
+        this.porcentajeDeGanancia = porcentajeDeGanancia;
         this.cantidadEnStock = cantidadEnStock;
         this.imagen = imagen;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -20,11 +20,11 @@
 
   <div class="opcionARealizar" >
     <h3>¿ERES PROVEEDOR O CLIENTE? (Da click a uno de los botones)</h3>
-    <form action="#">
-      <button onclick="proveedor()">Ingresar a proveedor</button>
-      <button onclick="cliente()">Ingresar a cliente</button>
-      <br><br>
-    </form>
+
+    <button onclick="proveedor()">Ingresar a proveedor</button>
+    <button onclick="cliente()">Ingresar a cliente</button>
+    <br><br>
+
   </div>
   <br><br>
 

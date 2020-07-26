@@ -30,20 +30,22 @@
         <h2>Por favor registre los productos</h2>
         <br><br>
 
-        <form action="#">
-            Descripción-Producto: <input type="text" name="descripcionProducto" width="120"/><br><br>
-            Otra-Descripción: <input type="text" name="descripcionDeEngancheCliente" width="200"/><br><br>
+        <form action="${pageContext.request.contextPath}/productos" method="post">
+            Descripción del producto: <input type="text" name="descripcionProducto" width="120"/><br><br>
+            Descripción de enganche: <input type="text" name="descripcionDeEngancheCliente" width="200"/><br><br>
             Refrigeración: <input type="checkbox" name="refrigeracion" width="30"/><br><br>
             Costo ₡: <input align="center" type="number" name="costo" width="30"/><br><br>
-            Porcentaje-Ganancia %: <input align="center" type="number" name="porcentajeDeGanancia" width="10"/><br><br>
-            Cantidad-En-Stock: <input align="center" type="number" name="cantidadEnStock" width="10"/><br><br>
-
+            Porcentaje de ganancia %: <input align="center" type="number" name="porcentajeDeGanancia" width="10"/><br><br>
+            Cantidad en Stock: <input align="center" type="number" name="cantidadEnStock" width="10"/><br><br>
             Ingrese imagen del articulo:<input align="center" type="file" name="image"/><br><br>
 
             <input type="submit" value="Ingresar Productos"/>
             <br><br>
 
         </form>
+
+        <p style="color: red;">${msg}</p>
+
     <%
         }
     %>

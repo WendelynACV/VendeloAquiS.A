@@ -1,4 +1,6 @@
-<%--
+<%@ page import="appLayer.Proveedores" %>
+<%@ page import="appLayer.UsuarioProveedor" %>
+<%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: Wen
   Date: 24/7/2020
@@ -21,10 +23,25 @@
 
     <h2>A continuación se presentan los proveedores existentes</h2>
     <br><br>
-    <form action="/webCliente.jsp" method="post">
 
-        <input type="submit" value="Ingresar"/>
-        <br><br>
-    </form>
+    <%
+        Proveedores proveedores = (Proveedores) session.getAttribute("proveedores");
+
+        if (proveedores != null ){
+
+            Iterator<UsuarioProveedor> iterator = proveedores.obtenerProveedores().iterator();
+            while (iterator.hasNext()) {
+                UsuarioProveedor proveedor = iterator.next();
+    %>
+                    <tr>
+                        <td><%=proveedor.getNombre()%></td>
+                        <td><%=proveedor.getLogo()%></td>
+                    </tr>
+                    
+    <%
+            }
+        }
+
+    %>
 </body>
 </html>

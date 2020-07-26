@@ -1,5 +1,6 @@
 package webapp;
 
+import appLayer.Proveedores;
 import appLayer.UsuarioProveedor;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,8 +42,16 @@ public class RegistrarProveedor extends HttpServlet {
         }
 
         if(numeroCedula == true) {
+
+            Proveedores proveedores = (Proveedores) request.getSession().getAttribute("proveedores");
+            if (proveedores == null ){
+                proveedores = new Proveedores();
+            }
+
             UsuarioProveedor proveedor = new UsuarioProveedor(cedula, nombre, contrasena, logo);
-            request.getSession().setAttribute("proveedor", proveedor);
+            proveedores.agregarProveedor(proveedor);
+
+            request.getSession().setAttribute("proveedores", proveedores);
             request.getSession().setAttribute("msgDeError", "");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {

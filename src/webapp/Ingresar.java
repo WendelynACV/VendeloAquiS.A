@@ -1,5 +1,6 @@
 package webapp;
 
+import appLayer.Proveedores;
 import appLayer.UsuarioProveedor;
 
 import javax.persistence.EntityManager;
@@ -20,15 +21,24 @@ public class Ingresar extends HttpServlet {
         String cedula = request.getParameter("cedula");
         String contrasena = request.getParameter("password");
 
-       //Crear comparación de contraseñas y cedulas para ver si se logea correctamente
-        UsuarioProveedor username = (UsuarioProveedor) request.getSession().getAttribute("proveedor");
+        Proveedores proveedores = (Proveedores) request.getSession().getAttribute("proveedores");
+        if (proveedores == null ){
+            proveedores = new Proveedores();
+        }
+
+        //Crear comparación de contraseñas y cedulas para ver si se logea correctamente
+        UsuarioProveedor username = proveedores.buscarProveedor(cedula);
+
         if((username != null) && ((username.getCedula().equals(cedula)) && username.getClaveUsuario().equals(contrasena))){
             // si al comparar estan correctas iguales entonces llama a pag de registrar productos
-            request.getSession().setAttribute("proveedor", request.getSession().getAttribute("proveedor"));
+            request.getSession().setAttribute("proveedores", proveedores);
+            request.getSession().setAttribute("proveedor", username);
+            request.getSession().setAttribute("msgDeError1", "");
             request.getRequestDispatcher("/registrarProducto.jsp").forward(request, response);
         }else {
             // sino en else{} marcar error como el de registrar proveedor
-            request.getSession().setAttribute("msgDeError", "La cedula no tiene el formato correcto.");
+            request.getSession().setAttribute("msgDeError1", "Los valores ingresados no coinciden, vuelvelo a intentar.");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 }
