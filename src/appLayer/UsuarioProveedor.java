@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class UsuarioProveedor {
 
-    private String cedula = "";
-    private String nombre = "";
-    private String fechaInicioEnSistema = "";
-    private String claveUsuario = "";
-    private String logo ="";
+    String cedula = "";
+    String nombre = "";
+    String fechaInicioEnSistema = "";
+    String claveUsuario = "";
+    String logo ="";
 
     public UsuarioProveedor(String cedula, String nombre, String claveUsuario, String logo) {
         this.cedula= cedula;

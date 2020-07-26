@@ -15,7 +15,9 @@
     <img src="${pageContext.request.contextPath}/images/VAlogo.png">
     <h1 align="center">Vendelo Aquí S.A</h1>
 
-    <br><br>
+    <br>
+    <h1>Bienvenido: ${proveedor.nombre}</h1>
+    <br>
     <h2>Por favor registre los productos</h2>
     <br><br>
 

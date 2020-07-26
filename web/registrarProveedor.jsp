@@ -27,5 +27,8 @@
         <br><br>
         <br>
     </form>
+
+    <p style="color: red;">${msgDeError}</p>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: Wen
   Date: 22/7/2020
@@ -41,6 +41,10 @@
   <br><br>
   <footer>
     <p>Wendelyn Cordero</p>
+    <%
+      Date date = new Date();
+      out.print("<h4>"+date.toString()+"<h4>");
+    %>
   </footer>
 
   </body>

@@ -20,11 +20,10 @@
     <br><br>
 
     <form action="${pageContext.request.contextPath}/login" method="post">
-        Login-nombre: <input type="text" name="loginname" width="120"/>
-        Password: <input minlength="8" align="center" type="password" name="password" width="10"/>
-        <!--<input type="submit" value="RegistrarProducto"/>-->
+        Login-nombre: <input type="text" name="loginname" width="120"/> <br><br>
+        Password: <input minlength="8" align="center" type="password" name="password" width="10"/> <br><br>
         <button>Ingresar</button>
-        <br><br>
+        <br><br><br>
         <a href="${pageContext.request.contextPath}/registrarProveedor.jsp">Registrar Proveedor</a>
 
     </form>

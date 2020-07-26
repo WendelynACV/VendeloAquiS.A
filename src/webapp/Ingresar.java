@@ -14,12 +14,15 @@ import java.io.IOException;
 @WebServlet(name = "login")
 public class Ingresar extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String cedula = request.getParameter("loginname");
+        String cedula = request.getParameter("cedula");
         String contrasena = request.getParameter("password");
 
+        request.getSession().setAttribute("proveedor", request.getSession().getAttribute("proveedor"));
         request.getRequestDispatcher("/registrarProducto.jsp").forward(request, response);
     }
+
 
 }
