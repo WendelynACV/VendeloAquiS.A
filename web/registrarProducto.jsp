@@ -1,4 +1,4 @@
-<%--
+<%@ page import="appLayer.UsuarioProveedor" %><%--
   Created by IntelliJ IDEA.
   User: Wen
   Date: 24/7/2020
@@ -16,25 +16,37 @@
     <h1 align="center">Vendelo Aquí S.A</h1>
 
     <br>
-    <h1>Bienvenido: ${proveedor.nombre}</h1>
-    <br>
-    <h2>Por favor registre los productos</h2>
-    <br><br>
 
-    <form action="#">
-        Descripción-appLayer.Producto: <input type="text" name="" "descripcionProducto" width="120"/><br><br>
-        Otra-Descripción: <input type="text" name="" "descripcionDeEngancheCliente" width="200"/><br><br>
-        Refrigeración: <input type="checkbox" name="refrigeracion" width="30"/><br><br>
-        Costo ₡: <input align="center" type="number" name="costo" width="30"/><br><br>
-        Porcentaje-Ganancia %: <input align="center" type="number" name="porcentajeDeGanancia" width="10"/><br><br>
-        Cantidad-En-Stock: <input align="center" type="number" name="cantidadEnStock" width="10"/><br><br>
-
-        Ingrese imagen del articulo:<input align="center" type="file" name="image"/><br><br>
-
-        <input type="submit" value="Ingresar Productos"/>
+    <%
+        UsuarioProveedor username = (UsuarioProveedor) session.getAttribute("proveedor");
+        if(username == null)  {
+    %>
+            <p>No se ha iniciado sesión. Navegue <a href="${pageContext.request.contextPath}/login.jsp">aquí</a></p>
+    <%
+        } else {
+    %>
+        <h1>Bienvenido: ${proveedor.nombre}</h1>
+        <br>
+        <h2>Por favor registre los productos</h2>
         <br><br>
 
-    </form>
+        <form action="#">
+            Descripción-Producto: <input type="text" name="descripcionProducto" width="120"/><br><br>
+            Otra-Descripción: <input type="text" name="descripcionDeEngancheCliente" width="200"/><br><br>
+            Refrigeración: <input type="checkbox" name="refrigeracion" width="30"/><br><br>
+            Costo ₡: <input align="center" type="number" name="costo" width="30"/><br><br>
+            Porcentaje-Ganancia %: <input align="center" type="number" name="porcentajeDeGanancia" width="10"/><br><br>
+            Cantidad-En-Stock: <input align="center" type="number" name="cantidadEnStock" width="10"/><br><br>
+
+            Ingrese imagen del articulo:<input align="center" type="file" name="image"/><br><br>
+
+            <input type="submit" value="Ingresar Productos"/>
+            <br><br>
+
+        </form>
+    <%
+        }
+    %>
 
 </body>
 </html>
