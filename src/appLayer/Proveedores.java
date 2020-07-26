@@ -7,7 +7,7 @@ public class Proveedores {
     public ArrayList<UsuarioProveedor> proveedores;
 
     public Proveedores() {
-        proveedores = new ArrayList<UsuarioProveedor>();
+        proveedores = new ArrayList<>();
     }
 
     public void agregarProveedor(UsuarioProveedor proveedor){

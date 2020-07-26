@@ -33,13 +33,23 @@
             while (iterator.hasNext()) {
                 UsuarioProveedor proveedor = iterator.next();
     %>
-                    <tr>
-                        <td> <%=proveedor.getNombre()%></td>
-                    </tr>
+                    <div onclick="desplegarProductos('<%=proveedor.getCedula()%>')">
+                        <h3><%=proveedor.getNombre()%></h3>
+                        <p><%=proveedor.getLogo()%></p>
+                    </div>
+
     <%
             }
         }
 
     %>
+
+    <script>
+
+        function desplegarProductos(idProveedor) {
+            document.location.href ="${pageContext.request.contextPath}/productos?cedula="+idProveedor;
+        }
+
+    </script>
 </body>
 </html>

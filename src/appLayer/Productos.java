@@ -8,7 +8,7 @@ public class Productos {
     public int valorIncrementalProducto = 0;
 
     public Productos() {
-        productos = new ArrayList<Producto>();
+        productos = new ArrayList<>();
         valorIncrementalProducto = 1;
     }
 
@@ -25,9 +25,9 @@ public class Productos {
     }
 
     public ArrayList<Producto> obtenerProductosPorProveedor(String cedula) {
-        ArrayList<Producto> misProductos = new ArrayList<Producto>();
+        ArrayList<Producto> misProductos = new ArrayList<>();
         for(int contador = 0; contador < productos.size(); contador ++) {
-            if (productos.get(contador).getId().contains(cedula)){
+            if (productos.get(contador) != null && productos.get(contador).getId().contains(cedula)){
                 misProductos.add(productos.get(contador));
             }
         }
