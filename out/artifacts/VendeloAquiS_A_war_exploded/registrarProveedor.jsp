@@ -19,13 +19,13 @@
     <h2>Por favor registrese</h2>
     <br><br>
     <form action="${pageContext.request.contextPath}/registrarProveedor" method="post">
-        Cedula: <input maxlength="12" type="text" name="cedula" width="20"/><br><br>
-        Nombre: <input maxlength="120" align="center" type="text" name="nombre" width="30"/><br><br>
-        Password: <input minlength="8" align="center" type="password" name="contrasena" width="10"/><br><br>
+        Cedula: <input maxlength="12" type="text" name="cedula" width="20" pattern="[0][1-9]-?\d{4}-?\d{4}" required/> (para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######') <br><br>
+        Nombre: <input maxlength="120" align="center" type="text" name="nombre" width="30" required/><br><br>
+        <!--Con pattern le doy el formato que quiero para la contraseña-->
+        Password: <input minlength="8" align="center" type="password" name="contrasena" pattern="^(?=.*\d{2})(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" width="10" required/><br><br>
         <td>Ingrese logo: </td><td><input align="center" type="file" name="image"/></td><br><br><br>
         <input align="center" type="submit" value="Registrarse"/>
         <br><br>
-        <br>
     </form>
 
     <p style="color: red;">${msgDeError}</p>

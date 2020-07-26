@@ -20,13 +20,15 @@
     <br><br>
 
     <form action="${pageContext.request.contextPath}/login" method="post">
+        cedula: <input maxlength="12" type="text" name="cedula" width="20" pattern="[0][1-9]-?\d{4}-?\d{4}" required>
         Login-nombre: <input type="text" name="loginname" width="120"/> <br><br>
         Password: <input minlength="8" align="center" type="password" name="password" width="10"/> <br><br>
         <button>Ingresar</button>
         <br><br><br>
         <a href="${pageContext.request.contextPath}/registrarProveedor.jsp">Registrar Proveedor</a>
-
     </form>
+
+    <p style="color: red;">${msgDeError}</p>
 
 </body>
 </html>

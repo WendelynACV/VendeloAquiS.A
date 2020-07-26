@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "registrarProveedor")
 public class RegistrarProveedor extends HttpServlet {
@@ -19,19 +20,20 @@ public class RegistrarProveedor extends HttpServlet {
         String contrasena = request.getParameter("contrasena");
         String logo = request.getParameter("image");
 
-        String specialChars = "-";
+        String caracterEspecial = "-";
         boolean specialchar = false;
         boolean numeroCedula = false;
 
         if (cedula.length() == 12) {
             for (int i = 0; i < cedula.length(); i++) {
                 // En el if le doy condición para que acepte el símbolo de guión '-' en los espacios correctos
-                if (specialChars.contains(String.valueOf(cedula.charAt(1))) && specialChars.contains(String.valueOf(cedula.charAt(5)))) {
+                if (caracterEspecial.contains(String.valueOf(cedula.charAt(1))) && caracterEspecial.contains(String.valueOf(cedula.charAt(5)))) {
                     numeroCedula = true;
-                } else if ((specialChars.contains(String.valueOf(cedula.charAt(2))) && specialChars.contains(String.valueOf(cedula.charAt(7))))) {
+                } else if ((caracterEspecial.contains(String.valueOf(cedula.charAt(2))) && caracterEspecial.contains(String.valueOf(cedula.charAt(7))))) {
                     numeroCedula = true;
                 } else{
-                    System.out.println("Cédula incorrecta, para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######' " );
+                    PrintWriter out = response.getWriter();
+                    out.print("Cédula incorrecta, para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######' " );
                     numeroCedula = false;
                     break;
                 }
