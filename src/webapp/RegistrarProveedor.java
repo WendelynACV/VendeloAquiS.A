@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet(name = "registrarProveedor")
 public class RegistrarProveedor extends HttpServlet {
@@ -28,22 +26,12 @@ public class RegistrarProveedor extends HttpServlet {
         boolean numeroCedula = false;
 
 
-
-
         if (cedula.length() == 12) {
-            for (int i = 0; i < cedula.length(); i++) {
-                // En el if le doy condición para que acepte el símbolo de guión '-' en los espacios correctos
-                if ((caracterEspecial.contains(String.valueOf(cedula.charAt(1))) && caracterEspecial.contains(String.valueOf(cedula.charAt(5))))) {
-                    numeroCedula = true;
-                } else if ((caracterEspecial.contains(String.valueOf(cedula.charAt(2))) && caracterEspecial.contains(String.valueOf(cedula.charAt(7))))) {
-                    numeroCedula = true;
-                } else{
-                    PrintWriter out = response.getWriter();
-                    out.print("Cédula incorrecta, para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######' " );
-                    numeroCedula = false;
-                    break;
-                }
-            }
+            numeroCedula = true;
+        } else{
+            PrintWriter out = response.getWriter();
+            out.print("Cédula incorrecta, para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######' " );
+            numeroCedula = false;
         }
 
         if(numeroCedula == true) {

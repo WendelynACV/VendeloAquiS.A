@@ -30,7 +30,7 @@
         <h2>Por favor registre los productos</h2>
         <br><br>
 
-        <form action="${pageContext.request.contextPath}/productos" method="post">
+        <form action="${pageContext.request.contextPath}/productos" method="post" enctype="multipart/form-data">
             Descripción del producto: <input type="text" name="descripcionProducto" width="120"/><br><br>
             Descripción de enganche: <input type="text" name="descripcionDeEngancheCliente" width="200"/><br><br>
             Refrigeración: <input type="checkbox" name="refrigeracion" width="30"/><br><br>
