@@ -35,23 +35,22 @@ public class ControladorProductos extends HttpServlet {
         int costo = Integer.parseInt(request.getParameter("costo"));
         int porcentajeDeGanancia = Integer.parseInt(request.getParameter("porcentajeDeGanancia"));
         int cantidadEnStock = Integer.parseInt(request.getParameter("cantidadEnStock"));
-        String image = request.getParameter("image");
+        String nombreDeLaImagen = request.getParameter("image");
 
-        //TODO Prueba de ingreso de imagen
         //Comprobamos si el formulario contiene o no la imagen (usamos el tamaño para comprobar si existe el campo o no)
         if (request.getPart("image").getSize() > 0) {
             //Nos aseguramos que el archivo es una imagen y que no excece de unos 8mb
             if (request.getPart("image").getContentType().contains("image") == false || request.getPart("image").getSize() > 8388608) {
                 // Cuando no tiene archivo correcto
                 request.setAttribute("msg", "Archivo no válido");
-                request.getRequestDispatcher("/registrarProducto.jsp").forward(request, response); //TODO OJO
+                request.getRequestDispatcher("/registrarProducto.jsp").forward(request, response);
                 return;
             }else{
                 //Obtenemos la ruta absoluta del sistema donde queremos guardar la imagen
                 String path = this.getServletContext().getRealPath("/images");
-                final String fileName = getFileName(request.getPart("image"));
+                nombreDeLaImagen = getFileName(request.getPart("image"));
                 //Guardamos la imagen en disco con la ruta que hemos obtenido en el paso anterior
-                boolean ok = guardarImagenDeProdructo(request.getPart("image").getInputStream(), path + File.separator + fileName);
+                boolean ok = guardarImagenDeProdructo(request.getPart("image").getInputStream(), path + File.separator + nombreDeLaImagen);
                 if (ok == false){
                     request.setAttribute("msg", "Fallo al guardar archivo");
                     request.getSession().setAttribute("msg", "Ocurrio un error guardando la imagen");
@@ -61,7 +60,6 @@ public class ControladorProductos extends HttpServlet {
                 }
             }
         }
-        //TODO FIN prueba
 
         Productos productos = (Productos) request.getSession().getAttribute("productos");
         if (productos == null ){
@@ -69,7 +67,7 @@ public class ControladorProductos extends HttpServlet {
         }
 
         Producto producto = new Producto(descripcionProducto, descripcionDeEngancheCliente, esRefrigeracion,
-                costo, porcentajeDeGanancia, cantidadEnStock, image);
+                costo, porcentajeDeGanancia, cantidadEnStock, nombreDeLaImagen);
 
         productos.agregarProducto(producto, username);
         request.getSession().setAttribute("productos", productos);

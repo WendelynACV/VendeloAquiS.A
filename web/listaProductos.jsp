@@ -36,7 +36,7 @@
                         <h3><%=producto.getDescripcionProducto()%></h3>
                         <p><%=producto.getCosto()%></p>
                         <p><%=producto.getCantidadEnStock()%></p>
-                        <p><%=producto.getImagen()%></p>
+                        <img src="${pageContext.request.contextPath}/images/<%=producto.getImagen()%>" />
                     </div>
 
     <%

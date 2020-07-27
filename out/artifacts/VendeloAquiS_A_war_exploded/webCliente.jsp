@@ -35,7 +35,7 @@
     %>
                     <div onclick="desplegarProductos('<%=proveedor.getCedula()%>')">
                         <h3><%=proveedor.getNombre()%></h3>
-                        <p><%=proveedor.getLogo()%></p>
+                        <img src="${pageContext.request.contextPath}/images/<%=proveedor.getLogo()%>" />
                     </div>
 
     <%

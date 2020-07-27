@@ -18,7 +18,7 @@
     <br><br>
     <h2>Por favor registrese</h2>
     <br><br>
-    <form action="${pageContext.request.contextPath}/registrarProveedor" method="post">
+    <form action="${pageContext.request.contextPath}/registrarProveedor" method="post" enctype="multipart/form-data">
         Cedula: <input maxlength="12" type="text" name="cedula" width="20" pattern="[0][1-9]-?\d{4}-?\d{4}|(3(?:-))((?:[0-9]{3}-))((?:[0-9]{6}$))" required/> (para cédula de identidad el formato es: '0#-####-####' y para jurídica: '3-###-######') <br><br>
         Nombre: <input maxlength="120" align="center" type="text" name="nombre" width="30" required/><br><br>
         <!--Con pattern le doy el formato que quiero para la contraseña-->
