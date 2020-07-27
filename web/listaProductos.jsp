@@ -30,11 +30,13 @@
             Iterator<Producto> iterator = productos.iterator();
             while (iterator.hasNext()) {
                 Producto producto = iterator.next();
-                // TODO Agregar las otras opciones del producto
+                // TODO Opciones del producto que se muestra al cliente
     %>
                     <div>
                         <h3><%=producto.getDescripcionProducto()%></h3>
                         <p><%=producto.getCosto()%></p>
+                        <p><%=producto.getCantidadEnStock()%></p>
+                        <p><%=producto.getImagen()%></p>
                     </div>
 
     <%
