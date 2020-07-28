@@ -56,7 +56,7 @@ public class RegistrarProveedor extends HttpServlet {
                     String path = this.getServletContext().getRealPath("/images");
                     logo = getFileName(request.getPart("image"));
                     //Guardamos la imagen en disco con la ruta que hemos obtenido en el paso anterior
-                    boolean ok = guardarImagenDeProdructo(request.getPart("image").getInputStream(), path + File.separator + logo);
+                    boolean ok = guardarImagenDeProveedor(request.getPart("image").getInputStream(), path + File.separator + logo);
                     if (ok == false){
                         request.setAttribute("msgDeError", "Fallo al guardar archivo");
                         request.getSession().setAttribute("msgDeError", "Ocurrio un error guardando la imagen");
@@ -81,7 +81,7 @@ public class RegistrarProveedor extends HttpServlet {
     }
 
     //Con este método se guarda la imagen del logo de proveedor
-    public static boolean guardarImagenDeProdructo(InputStream input, String fileName)
+    public static boolean guardarImagenDeProveedor(InputStream input, String fileName)
             throws ServletException {
         FileOutputStream output = null;
         boolean ok = false;
