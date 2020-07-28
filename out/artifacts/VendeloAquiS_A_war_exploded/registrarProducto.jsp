@@ -40,11 +40,13 @@
             Ingrese imagen del articulo:<input align="center" type="file" name="image"/><br><br>
 
             <input type="submit" value="Ingresar Productos"/>
-            <br><br>
+            <br>
 
         </form>
 
-        <p style="color: red;">${msg}</p>
+        <p style="color: darkgreen;">${msg}</p><br>
+
+        <a href="${pageContext.request.contextPath}/index.jsp">Regresar a inicio</a><br><br>
 
     <%
         }

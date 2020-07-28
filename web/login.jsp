@@ -20,7 +20,7 @@
     <br><br>
 
     <form action="${pageContext.request.contextPath}/login" method="post">
-        <!--(^0(?:[1-9]{1}-))((?:[0-9]{4}-))((?:[0-9]{4}$))  mía =[0][1-9]-?\d{4}-?\d{4}|[3]-?\d{3}-?\d{6}-->
+
         Cedula: <input maxlength="12" type="text" name="cedula" width="20" pattern="[0][1-9]-?\d{4}-?\d{4}|(3(?:-))((?:[0-9]{3}-))((?:[0-9]{6}$))" required>
         <br><br>
         Password: <input minlength="8" align="center" type="password" name="password" width="10"/> <br><br>

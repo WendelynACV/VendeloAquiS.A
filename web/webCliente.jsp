@@ -51,5 +51,7 @@
         }
 
     </script>
+
+    <a href="${pageContext.request.contextPath}/index.jsp">Regresar a inicio</a>
 </body>
 </html>

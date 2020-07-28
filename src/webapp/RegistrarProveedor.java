@@ -80,6 +80,7 @@ public class RegistrarProveedor extends HttpServlet {
 
     }
 
+    //Con este método se guarda la imagen del logo de proveedor
     public static boolean guardarImagenDeProdructo(InputStream input, String fileName)
             throws ServletException {
         FileOutputStream output = null;

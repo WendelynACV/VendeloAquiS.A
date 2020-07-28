@@ -91,6 +91,7 @@ public class ControladorProductos extends HttpServlet {
         request.getRequestDispatcher("/listaProductos.jsp").forward(request, response);
     }
 
+    //Se almacena la imagen
     public static boolean guardarImagenDeProdructo(InputStream input, String fileName)
             throws ServletException {
         FileOutputStream output = null;
@@ -116,7 +117,7 @@ public class ControladorProductos extends HttpServlet {
         }
         return ok;
     }
-
+    //Para obtener el nombre de la imagen
     private String getFileName(final Part part) {
         final String partHeader = part.getHeader("content-disposition");
         for (String content : part.getHeader("content-disposition").split(";")) {
