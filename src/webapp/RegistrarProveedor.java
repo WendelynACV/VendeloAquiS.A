@@ -18,10 +18,15 @@ public class RegistrarProveedor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        boolean esOferta = false;
         String cedula = request.getParameter("cedula");
         String nombre = request.getParameter("nombre");
         String contrasena = request.getParameter("contrasena");
         String logo = request.getParameter("image");
+        String acogeOfertaSemanal = request.getParameter("oferta");  //TODO: Se agrega la nueva variable para proveedor
+        if (acogeOfertaSemanal != null && acogeOfertaSemanal.contains("on")) {
+            esOferta = true;
+        }
 
         String caracterEspecial = "-";
         boolean specialchar = false;
@@ -67,7 +72,7 @@ public class RegistrarProveedor extends HttpServlet {
                 }
             }
 
-            UsuarioProveedor proveedor = new UsuarioProveedor(cedula, nombre, contrasena, logo);
+            UsuarioProveedor proveedor = new UsuarioProveedor(cedula, nombre, contrasena, logo, esOferta);
             proveedores.agregarProveedor(proveedor);
 
             request.getSession().setAttribute("proveedores", proveedores);

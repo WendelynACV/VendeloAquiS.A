@@ -10,18 +10,18 @@ public class UsuarioProveedor {
     String fechaInicioEnSistema = "";
     String claveUsuario = "";
     String logo ="";
+    boolean acogeOfertaSemanal = false;
 
-    public UsuarioProveedor(String cedula, String nombre, String claveUsuario, String logo) {
+    public UsuarioProveedor(String cedula, String nombre, String claveUsuario, String logo, boolean acogeOfertaSemanal) {
         this.cedula= cedula;
         this.nombre = nombre;
         this.fechaInicioEnSistema = new Date().toString();
         this.claveUsuario = claveUsuario;
         this.logo = logo;
+        this.acogeOfertaSemanal = acogeOfertaSemanal;
     }
 
-    public String getCedula() {
-        return cedula;
-    }
+    public String getCedula() { return cedula; }
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
@@ -59,4 +59,7 @@ public class UsuarioProveedor {
         this.logo = logo;
     }
 
+    public boolean isAcogeOfertaSemanal() { return acogeOfertaSemanal; }
+
+    public void setAcogeOfertaSemanal(boolean acogeOfertaSemanal) { this.acogeOfertaSemanal = acogeOfertaSemanal; }
 }

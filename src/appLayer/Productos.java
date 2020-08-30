@@ -34,4 +34,14 @@ public class Productos {
         return misProductos;
     }
 
+    public int obtenerTotalProductosPorProveedor(String cedula){
+        int cantidadTotalProductos = 0;
+        for(int contador = 0; contador < productos.size(); contador ++) {
+            ArrayList<Producto> misProductos = new ArrayList<>();
+            if (productos.get(contador) != null && productos.get(contador).getId().contains(cedula)){
+                cantidadTotalProductos = 1+ cantidadTotalProductos;
+            }
+        }
+        return cantidadTotalProductos;
+    }
 }
