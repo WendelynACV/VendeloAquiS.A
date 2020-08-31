@@ -82,8 +82,60 @@ public class ControladorProductos extends HttpServlet {
 
         String cedula = request.getParameter("cedula");
         Productos productos = (Productos) request.getSession().getAttribute("productos");
+
+        Proveedores proveedores = (Proveedores) request.getSession().getAttribute("proveedores");
+        if (proveedores == null ){
+            proveedores = new Proveedores();
+
+            UsuarioProveedor proveedor = new UsuarioProveedor("01-1439-0414", "Sergio", "89653890Sg" , "", false);
+            proveedores.agregarProveedor(proveedor);
+            proveedor = new UsuarioProveedor("01-1444-0232", "Juan", "0758693212Jj" , "", true);
+            proveedores.agregarProveedor(proveedor);
+            proveedor = new UsuarioProveedor("3-191-054214", "FreshFruit", "Ff1234567890" , "", true);
+            proveedores.agregarProveedor(proveedor);
+
+            request.getSession().setAttribute("proveedores", proveedores);
+        }
+
         if (productos == null ){
             productos = new Productos();
+
+            //TODO Agregando productos a los usuarios que van a persistir en inicio de sesión
+            //Proveedor1 me permite buscar el proveedor con la función creada en Proveedores
+            UsuarioProveedor username = proveedores.buscarProveedor("01-1439-0414");
+
+            Producto producto = new Producto("manzanas verdes", "", true,
+                    200, 2, 12, "", 3);
+            //TODO En la clase Productos, se creo el método agregarProducto para un proveedor en especifico, acá lo reutilizo para agregar los productos que persisten.
+            productos.agregarProducto(producto, username);
+
+            producto = new Producto("naranjas", "Dulces", false,
+                    250, 3, 30, "", 5);
+            productos.agregarProducto(producto, username);
+
+            //Proveedor 2
+            username = proveedores.buscarProveedor("01-1444-0232");
+
+            producto = new Producto("Vino tinto", "Vino seco", false,
+                    5000, 3, 18, "", 2);
+            productos.agregarProducto(producto, username);
+
+            producto = new Producto("Vino Blanco", "Vino dulce", true,
+                    4000, 2, 20, "", 3);
+            productos.agregarProducto(producto, username);
+
+            //Proveedor 3
+            username = proveedores.buscarProveedor("3-191-054214");
+
+            producto = new Producto("Aguacate", "", false,
+                    500, 2, 25, "", 4);
+            productos.agregarProducto(producto, username);
+
+            producto = new Producto("Papas", "", false,
+                    600, 2, 40, "", 8);
+            productos.agregarProducto(producto, username);
+
+
         }
 
         ArrayList<Producto> misProductos = productos.obtenerProductosPorProveedor(cedula);

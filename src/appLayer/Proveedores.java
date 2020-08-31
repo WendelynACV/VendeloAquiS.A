@@ -33,11 +33,23 @@ public class Proveedores {
         UsuarioProveedor proveedor = null;
         for(int contador = 0; contador < proveedores.size(); contador ++) {
             if (proveedores.get(contador).getCedula().contains(cedula)){
+
                 proveedor = proveedores.get(contador);
-                proveedor.setNombre(nombre);
-                proveedor.setClaveUsuario(claveUsuario);
-                proveedor.setLogo(logo);
+
+                if (!nombre.isEmpty()){
+                    proveedor.setNombre(nombre);
+                }
+
+                if (!claveUsuario.isEmpty()){
+                    proveedor.setClaveUsuario(claveUsuario);
+                }
+
+                if (!logo.isEmpty()){
+                    proveedor.setLogo(logo);
+                }
+
                 proveedor.setAcogeOfertaSemanal(acogeOfertaSemanal);
+
                 proveedores.add(contador, proveedor);
                 break;
             }

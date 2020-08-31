@@ -46,6 +46,15 @@ public class RegistrarProveedor extends HttpServlet {
             Proveedores proveedores = (Proveedores) request.getSession().getAttribute("proveedores");
             if (proveedores == null ){
                 proveedores = new Proveedores();
+
+                UsuarioProveedor proveedor = new UsuarioProveedor("01-1439-0414", "Sergio", "89653890Sg" , "", false);
+                proveedores.agregarProveedor(proveedor);
+                proveedor = new UsuarioProveedor("01-1444-0232", "Juan", "0758693212Jj" , "", true);
+                proveedores.agregarProveedor(proveedor);
+                proveedor = new UsuarioProveedor("3-191-054214", "FreshFruit", "Ff1234567890" , "", true);
+                proveedores.agregarProveedor(proveedor);
+
+                request.getSession().setAttribute("proveedores", proveedores);
             }
 
             //Comprobamos si el formulario contiene o no la imagen (usamos el tamaño para comprobar si existe el campo o no)

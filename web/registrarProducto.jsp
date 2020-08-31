@@ -47,6 +47,9 @@
 
         <p style="color: darkgreen;">${msg}</p><br>
 
+        <!--Actualizar datos de proveedor-->
+        <a href="${pageContext.request.contextPath}/actualizarProveedor.jsp">Actualizar Proveedor</a> <br><br>
+
         <a href="${pageContext.request.contextPath}/index.jsp">Regresar a inicio</a><br><br>
 
     <%

@@ -26,12 +26,26 @@
 
     <%
         Proveedores proveedores = (Proveedores) session.getAttribute("proveedores");
+        if (proveedores == null ){
+            proveedores = new Proveedores();
+
+            UsuarioProveedor proveedor = new UsuarioProveedor("01-1439-0414", "Sergio", "89653890Sg" , "", false);
+            proveedores.agregarProveedor(proveedor);
+            proveedor = new UsuarioProveedor("01-1444-0232", "Juan", "0758693212Jj" , "", true);
+            proveedores.agregarProveedor(proveedor);
+            proveedor = new UsuarioProveedor("3-191-054214", "FreshFruit", "Ff1234567890" , "", true);
+            proveedores.agregarProveedor(proveedor);
+
+            session.setAttribute("proveedores", proveedores);
+        }
 
         if (proveedores != null ){
 
             Iterator<UsuarioProveedor> iterator = proveedores.obtenerProveedores().iterator();
             while (iterator.hasNext()) {
                 UsuarioProveedor proveedor = iterator.next();
+
+
     %>
                     <div onclick="desplegarProductos('<%=proveedor.getCedula()%>')">
                         <h3><%=proveedor.getNombre()%></h3>
@@ -43,7 +57,7 @@
         }
 
     %>
-
+    <br><br>
     <script>
 
         function desplegarProductos(idProveedor) {
@@ -52,6 +66,8 @@
 
     </script>
 
+    <br><br>
     <a href="${pageContext.request.contextPath}/index.jsp">Regresar a inicio</a>
+    <br><br>
 </body>
 </html>

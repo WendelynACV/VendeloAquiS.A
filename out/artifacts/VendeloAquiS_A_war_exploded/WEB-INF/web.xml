@@ -34,4 +34,15 @@
         <url-pattern>/productos</url-pattern>
     </servlet-mapping>
 
+    <!--Servlet para actualizar proveedor-->
+    <servlet>
+        <servlet-name>actualizar_Proveedor</servlet-name>
+        <servlet-class>webapp.ActualizarProveedor</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>actualizar_Proveedor</servlet-name>
+        <url-pattern>/actualizar_Proveedor</url-pattern>
+    </servlet-mapping>
+
 </web-app>
