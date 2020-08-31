@@ -38,6 +38,7 @@
             Porcentaje de ganancia %: <input align="center" type="number" name="porcentajeDeGanancia" width="10"/><br><br>
             Cantidad en Stock: <input align="center" type="number" name="cantidadEnStock" width="10"/><br><br>
             Ingrese imagen del articulo:<input align="center" type="file" name="image"/><br><br>
+            Cantidad máxima permitida a comprar: <input align="center" type="number" name="cantidadMaxPermitidaAComprar" width="10"/><br><br>
 
             <input type="submit" value="Ingresar Productos"/>
             <br>

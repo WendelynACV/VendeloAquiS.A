@@ -36,6 +36,7 @@ public class ControladorProductos extends HttpServlet {
         int porcentajeDeGanancia = Integer.parseInt(request.getParameter("porcentajeDeGanancia"));
         int cantidadEnStock = Integer.parseInt(request.getParameter("cantidadEnStock"));
         String nombreDeLaImagen = request.getParameter("image");
+        int cantidadMaxPermitidaAComprar = Integer.parseInt(request.getParameter("cantidadMaxPermitidaAComprar"));
 
         //Comprobamos si el formulario contiene o no la imagen (usamos el tamaño para comprobar si existe el campo o no)
         if (request.getPart("image").getSize() > 0) {
@@ -67,7 +68,7 @@ public class ControladorProductos extends HttpServlet {
         }
 
         Producto producto = new Producto(descripcionProducto, descripcionDeEngancheCliente, esRefrigeracion,
-                costo, porcentajeDeGanancia, cantidadEnStock, nombreDeLaImagen);
+                costo, porcentajeDeGanancia, cantidadEnStock, nombreDeLaImagen, cantidadMaxPermitidaAComprar);
 
         productos.agregarProducto(producto, username);
         request.getSession().setAttribute("productos", productos);

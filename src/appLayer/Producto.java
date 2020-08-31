@@ -10,9 +10,10 @@ public class Producto {
     private int porcentajeDeGanancia = 0;
     private int cantidadEnStock = 0;
     private String imagen = "";
+    private int cantidadMaxPermitidaAComprar =0;
 
     public Producto(String descripcionProducto, String descripcionDeEnganche, boolean refrigeracion,  int costo,
-                    int porcentajeDeGanancia, int cantidadEnStock, String imagen){
+                    int porcentajeDeGanancia, int cantidadEnStock, String imagen, int cantidadMaxPermitidaAComprar){
         this.descripcionProducto = descripcionProducto;
         this.descripcionDeEngancheCliente = descripcionDeEnganche;
         this.refrigeracion = refrigeracion;
@@ -20,6 +21,7 @@ public class Producto {
         this.porcentajeDeGanancia = porcentajeDeGanancia;
         this.cantidadEnStock = cantidadEnStock;
         this.imagen = imagen;
+        this.cantidadMaxPermitidaAComprar = cantidadMaxPermitidaAComprar;
     }
 
     public String getId() {
@@ -84,5 +86,11 @@ public class Producto {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public int getCantidadMaxPermitidaAComprar() { return cantidadMaxPermitidaAComprar; }
+
+    public void setCantidadMaxPermitidaAComprar(int cantidadMaxPermitidaAComprar) {
+        this.cantidadMaxPermitidaAComprar = cantidadMaxPermitidaAComprar;
     }
 }
