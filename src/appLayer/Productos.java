@@ -13,7 +13,7 @@ public class Productos {
     }
 
     public void agregarProducto(Producto producto, UsuarioProveedor proveedor){
-        String idProducto = proveedor.getCedula() + "-" + valorIncrementalProducto;
+        String idProducto = proveedor.getCedula() + "--" + valorIncrementalProducto;
         valorIncrementalProducto ++;
         producto.setId(idProducto);
 

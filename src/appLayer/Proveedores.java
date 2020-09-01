@@ -50,7 +50,7 @@ public class Proveedores {
 
                 proveedor.setAcogeOfertaSemanal(acogeOfertaSemanal);
 
-                proveedores.add(contador, proveedor);
+                proveedores.set(contador, proveedor);
                 break;
             }
         }
@@ -59,14 +59,17 @@ public class Proveedores {
 
     public ArrayList<UsuarioProveedor> listarProveedores(Productos productos){
         Map<String, Integer> provedoresAOrdenar = new HashMap<>();
-        for (int i=0; i< proveedores.size(); i++){
-            int productosDelProveedor = productos.obtenerTotalProductosPorProveedor(proveedores.get(i).getCedula());
-            provedoresAOrdenar.put(proveedores.get(i).getCedula(), productosDelProveedor);
-        }
-        Map<String, Integer> proveedoresOrdenados = ordenarProveedores(provedoresAOrdenar);
         ArrayList<UsuarioProveedor> listaDeProvedores = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : proveedoresOrdenados.entrySet()) {
-            listaDeProvedores.add(buscarProveedor(entry.getKey()));
+        if (productos != null) {
+            for (int i=0; i< proveedores.size(); i++){
+                int productosDelProveedor = productos.obtenerTotalProductosPorProveedor(proveedores.get(i).getCedula());
+                provedoresAOrdenar.put(proveedores.get(i).getCedula(), productosDelProveedor);
+            }
+            Map<String, Integer> proveedoresOrdenados = ordenarProveedores(provedoresAOrdenar);
+
+            for (Map.Entry<String, Integer> entry : proveedoresOrdenados.entrySet()) {
+                listaDeProvedores.add(buscarProveedor(entry.getKey()));
+            }
         }
         return listaDeProvedores;
     }
@@ -80,9 +83,8 @@ public class Proveedores {
         // 2. Sort list with Collections.sort(), provide a custom Comparator
         //    Try switch the o1 o2 position for a different order
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-            public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2) {
-                return (o1.getValue()).compareTo(o2.getValue());
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return (o2.getValue()).compareTo(o1.getValue());
             }
         });
 

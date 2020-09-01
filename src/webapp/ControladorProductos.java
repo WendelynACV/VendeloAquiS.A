@@ -135,12 +135,12 @@ public class ControladorProductos extends HttpServlet {
                     600, 2, 40, "", 8);
             productos.agregarProducto(producto, username);
 
-
         }
 
         ArrayList<Producto> misProductos = productos.obtenerProductosPorProveedor(cedula);
-
         request.getSession().setAttribute("misProductos", misProductos);
+
+        request.getSession().setAttribute("productos", productos);
         request.getRequestDispatcher("/listaProductos.jsp").forward(request, response);
     }
 
